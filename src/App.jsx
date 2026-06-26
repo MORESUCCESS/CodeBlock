@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Signup from "./components/signup";
 import Login from "./components/login";
 import Resources from "./pages/resources";
+import Categories from "./pages/categories";
 
 const App = () => {
   return (
@@ -20,6 +21,15 @@ const App = () => {
           element={
             <Layout>
               <Resources />
+            </Layout>
+          }
+        />
+
+        <Route
+          path="/categories"
+          element={
+            <Layout>
+              <Categories />
             </Layout>
           }
         />
