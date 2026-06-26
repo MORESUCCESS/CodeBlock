@@ -9,6 +9,7 @@ import Login from "./components/login";
 import Resources from "./pages/resources";
 import Categories from "./pages/categories";
 import About from "./pages/about";
+import Cart from "./pages/cart";
 
 const App = () => {
   return (
@@ -40,6 +41,15 @@ const App = () => {
           element={
             <Layout>
               <About />
+            </Layout>
+          }
+        />
+
+        <Route
+          path="/cart"
+          element={
+            <Layout>
+              <Cart />
             </Layout>
           }
         />
