@@ -6,16 +6,21 @@ import Layout from "./components/layout";
 import Home from "./pages/Home";
 import Signup from "./components/signup";
 import Login from "./components/login";
+import Resources from "./pages/resources";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
         {/* Pages with Navbar + Footer */}
+        <Route path="/" element={<Home />} />
+
         <Route
-          path="/"
+          path="/resources"
           element={
-              <Home />
+            <Layout>
+              <Resources />
+            </Layout>
           }
         />
 
