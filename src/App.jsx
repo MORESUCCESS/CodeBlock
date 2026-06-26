@@ -10,6 +10,7 @@ import Resources from "./pages/resources";
 import Categories from "./pages/categories";
 import About from "./pages/about";
 import Cart from "./pages/cart";
+import ResourceDetails from "./pages/resourceDetails";
 
 const App = () => {
   return (
@@ -50,6 +51,15 @@ const App = () => {
           element={
             <Layout>
               <Cart />
+            </Layout>
+          }
+        />
+
+        <Route
+          path="/resources/:id"
+          element={
+            <Layout>
+              <ResourceDetails />
             </Layout>
           }
         />
