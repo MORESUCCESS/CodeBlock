@@ -1,154 +1,305 @@
-import React from "react";
-import { Menu } from "lucide-react";
+import React, { useState } from "react";
+import { Menu, X } from "lucide-react";
 import Logo from "./logo";
 import { FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 const Layout = ({ children }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const navLinks = ["Browse Resources", "Categories", "About"];
+
   return (
     <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-950">
       {/* Navbar */}
-      <header className="w-full border-b border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-950/80 backdrop-blur-md sticky top-0 z-50">
-        <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <header
+        className="
+        w-full 
+        border-b 
+        border-gray-200 
+        dark:border-gray-800 
+        bg-white/80 
+        dark:bg-gray-950/80 
+        backdrop-blur-md 
+        sticky 
+        top-0 
+        z-50
+      "
+      >
+        <nav
+          className="
+          max-w-7xl 
+          mx-auto 
+          px-6 
+          py-4 
+          flex 
+          items-center 
+          justify-between
+        "
+        >
           <Logo size="sm" />
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600 dark:text-gray-300">
-            <a
-              href="#"
-              className="hover:text-black dark:hover:text-white transition"
-            >
-              Browse Resources
-            </a>
-
-            <a
-              href="#"
-              className="hover:text-black dark:hover:text-white transition"
-            >
-              Categories
-            </a>
-
-            <a
-              href="#"
-              className="hover:text-black dark:hover:text-white transition"
-            >
-              About
-            </a>
+          <div
+            className="
+            hidden 
+            md:flex 
+            items-center 
+            gap-8 
+            text-sm 
+            font-medium 
+            text-gray-600 
+            dark:text-gray-300
+          "
+          >
+            {navLinks.map((link) => (
+              <a
+                key={link}
+                href="#"
+                className="
+                  hover:text-black
+                  dark:hover:text-white
+                  transition
+                "
+              >
+                {link}
+              </a>
+            ))}
           </div>
 
-          {/* Actions */}
-          <div className="flex items-center gap-3">
-            {/* Auth Links */}
-            <div className="hidden sm:flex items-center gap-3">
-              <a
-                href="#"
-                className="
-                  px-4 py-2
-                  rounded-xl
-                  text-sm
-                  font-semibold
-                  text-gray-700
-                  dark:text-gray-200
-                  hover:bg-gray-100
-                  dark:hover:bg-gray-800
-                  transition
-                "
-              >
-                Login
-              </a>
-
-              <a
-                href="#"
-                className="
-                  px-5 py-2
-                  rounded-xl
-                  bg-gray-900
-                  text-white
-                  text-sm
-                  font-semibold
-                  hover:scale-105
-                  transition
-                "
-              >
-                Signup
-              </a>
-            </div>
-
-            {/* Mobile Menu */}
-            <button
+          {/* Desktop Actions */}
+          <div className="hidden sm:flex items-center gap-3">
+            <a
+              href="#"
               className="
-                md:hidden
-                p-2
-                rounded-xl
-                bg-gray-100
-                dark:bg-gray-800
-                text-white
+                px-4 
+                py-2 
+                rounded-xl 
+                text-sm 
+                font-semibold
+                text-gray-700
+                dark:text-gray-200
+                hover:bg-gray-100
+                dark:hover:bg-gray-800
+                transition
               "
             >
-              <Menu size={22} />
-            </button>
+              Login
+            </a>
+
+            <a
+              href="#"
+              className="
+                px-5
+                py-2
+                rounded-xl
+                bg-gray-900
+                text-white
+                text-sm
+                font-semibold
+                hover:scale-105
+                transition
+              "
+            >
+              Signup
+            </a>
           </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="
+              md:hidden
+              p-2
+              rounded-xl
+              bg-gray-100
+              dark:bg-gray-800
+              text-gray-900
+              dark:text-white
+            "
+          >
+            {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
         </nav>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div
+            className="
+            md:hidden
+            border-t
+            border-gray-200
+            dark:border-gray-800
+            px-6
+            py-6
+            bg-white
+            dark:bg-gray-950
+          "
+          >
+            <div className="flex flex-col gap-5">
+              {navLinks.map((link) => (
+                <a
+                  key={link}
+                  href="#"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="
+                    text-gray-700
+                    dark:text-gray-200
+                    font-medium
+                    hover:text-black
+                    dark:hover:text-white
+                  "
+                >
+                  {link}
+                </a>
+              ))}
+
+              <div
+                className="
+                flex 
+                flex-col 
+                gap-3 
+                pt-4
+                border-t
+                border-gray-200
+                dark:border-gray-800
+              "
+              >
+                <a
+                  href="#"
+                  className="
+                    px-4
+                    py-3
+                    rounded-xl
+                    text-white
+                    text-center
+                    font-semibold
+                    bg-gray-100
+                    dark:bg-gray-900
+                  "
+                >
+                  Login
+                </a>
+
+                <a
+                  href="#"
+                  className="
+                    px-4
+                    py-3
+                    rounded-xl
+                    text-center
+                    font-semibold
+                    bg-gray-900
+                    text-white
+                  "
+                >
+                  Signup
+                </a>
+              </div>
+            </div>
+          </div>
+        )}
       </header>
 
       {/* Page Content */}
       <main className="flex-1 mb-20">{children}</main>
 
       {/* Footer */}
-      <footer className="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950">
-        <div className="max-w-7xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-8">
-          {/* Brand */}
+      <footer
+        className="
+        border-t
+        border-gray-200
+        dark:border-gray-800
+        bg-white
+        dark:bg-gray-950
+      "
+      >
+        <div
+          className="
+          max-w-7xl
+          mx-auto
+          px-6
+          py-10
+          grid
+          md:grid-cols-3
+          gap-8
+        "
+        >
           <div>
             <Logo size="sm" />
 
-            <p className="mt-4 text-sm text-gray-500 dark:text-gray-400 max-w-sm">
+            <p
+              className="
+              mt-4
+              text-sm
+              text-gray-500
+              dark:text-gray-400
+              max-w-sm
+            "
+            >
               Get production-ready code blocks, starter kits, and developer
               resources for your next project.
             </p>
           </div>
 
-          {/* Links */}
           <div>
-            <h3 className="font-bold text-gray-900 dark:text-white mb-4">
+            <h3
+              className="
+              font-bold
+              text-gray-900
+              dark:text-white
+              mb-4
+            "
+            >
               Platform
             </h3>
 
-            <ul className="space-y-2 text-sm text-gray-500 dark:text-gray-400">
+            <ul
+              className="
+              space-y-2
+              text-sm
+              text-gray-500
+              dark:text-gray-400
+            "
+            >
               <li>Components</li>
-
               <li>Starter Kits</li>
-
               <li>Templates</li>
-
               <li>Documentation</li>
             </ul>
           </div>
 
-          {/* Social */}
           <div>
-            <h3 className="font-bold text-gray-900 dark:text-white mb-4">
+            <h3
+              className="
+              font-bold
+              text-gray-900
+              dark:text-white
+              mb-4
+            "
+            >
               Connect
             </h3>
 
             <div className="flex gap-3">
               <button
                 className="
-                  p-2
-                  rounded-xl
-                  bg-gray-100
-                  dark:bg-gray-800
-                "
+                p-2
+                rounded-xl
+                bg-gray-100
+                dark:bg-gray-800
+              "
               >
                 <FaGithub size={18} />
               </button>
 
               <button
                 className="
-                  p-2
-                  rounded-xl
-                  bg-gray-100
-                  dark:bg-gray-800
-                "
+                p-2
+                rounded-xl
+                bg-gray-100
+                dark:bg-gray-800
+              "
               >
                 <FaXTwitter size={18} />
               </button>
