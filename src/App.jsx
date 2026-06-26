@@ -8,6 +8,7 @@ import Signup from "./components/signup";
 import Login from "./components/login";
 import Resources from "./pages/resources";
 import Categories from "./pages/categories";
+import About from "./pages/about";
 
 const App = () => {
   return (
@@ -30,6 +31,15 @@ const App = () => {
           element={
             <Layout>
               <Categories />
+            </Layout>
+          }
+        />
+
+        <Route
+          path="/about"
+          element={
+            <Layout>
+              <About />
             </Layout>
           }
         />
