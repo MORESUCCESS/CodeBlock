@@ -214,6 +214,7 @@ const Layout = ({ children }) => {
                 p-2
                 rounded-xl
                 bg-gray-100
+                text-white
                 dark:bg-gray-800
               "
             >
