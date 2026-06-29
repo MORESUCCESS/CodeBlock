@@ -1,96 +1,67 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
-// Layout
 import Layout from "./components/layout";
+import AdminLayout from "./admin/components/adminLayout";
 
-// Pages
-import Home from "./pages/Home";
-import Resources from "./pages/Resources";
-import Categories from "./pages/Categories";
-import About from "./pages/About";
-import Cart from "./pages/Cart";
-import ResourceDetails from "./pages/ResourceDetails";
-import Checkout from "./pages/Checkout";
+// public pages
+import Home from "./pages/home";
+import Resources from "./pages/resources";
+import Categories from "./pages/categories";
+import About from "./pages/about";
+import Cart from "./pages/cart";
+import Checkout from "./pages/checkout";
 
-// Auth (No Layout)
-import Signup from "./components/signup";
+// auth
 import Login from "./components/login";
+import Signup from "./components/signUp";
+
+// admin
+import Dashboard from "./admin/pages/dashboard";
+import Products from "./admin/pages/products";
+import Orders from "./admin/pages/orders";
+import Users from "./admin/pages/users";
+import Settings from "./admin/pages/settings";
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        {/* Main Website */}
+    <Routes>
+      {/* AUTH */}
 
-        <Route
-          path="/"
-          element={
-              <Home />
-          }
-        />
+      <Route path="/login" element={<Login />} />
 
-        <Route
-          path="/resources"
-          element={
-            <Layout>
-              <Resources />
-            </Layout>
-          }
-        />
+      <Route path="/signup" element={<Signup />} />
 
-        <Route
-          path="/resources/:id"
-          element={
-            <Layout>
-              <ResourceDetails />
-            </Layout>
-          }
-        />
+      {/* ADMIN */}
 
-        <Route
-          path="/categories"
-          element={
-            <Layout>
-              <Categories />
-            </Layout>
-          }
-        />
+      <Route path="/admin" element={<AdminLayout />}>
+        <Route index element={<Dashboard />} />
 
-        <Route
-          path="/about"
-          element={
-            <Layout>
-              <About />
-            </Layout>
-          }
-        />
+        <Route path="resources" element={<Products />} />
 
-        <Route
-          path="/cart"
-          element={
-            <Layout>
-              <Cart />
-            </Layout>
-          }
-        />
+        <Route path="orders" element={<Orders />} />
 
-        <Route
-          path="/checkout"
-          element={
-            <Layout>
-              <Checkout />
-            </Layout>
-          }
-        />
+        <Route path="users" element={<Users />} />
 
-        {/* Authentication Pages */}
+        <Route path="settings" element={<Settings />} />
+      </Route>
 
-        <Route path="/login" element={<Login />} />
+      {/* WEBSITE */}
 
-        <Route path="/signup" element={<Signup />} />
-      </Routes>
-    </BrowserRouter>
+      <Route element={<Layout />}>
+        <Route path="/" element={<Home />} />
+
+        <Route path="/resources" element={<Resources />} />
+
+        <Route path="/categories" element={<Categories />} />
+
+        <Route path="/about" element={<About />} />
+
+        <Route path="/cart" element={<Cart />} />
+
+        <Route path="/checkout" element={<Checkout />} />
+      </Route>
+    </Routes>
   );
 };
 

@@ -70,8 +70,7 @@ const benefits = [
 
 const Home = () => {
   return (
-    <Layout>
-      {/* HERO */}
+    <>
       <section className="px-6 py-30 max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
         <div className="flex flex-col lg:items-start items-center lg:text-start text-center space-y-6 lg:space-y-0">
           <h1 className="text-5xl md:text-7xl font-black tracking-tight text-white">
@@ -279,7 +278,7 @@ const Home = () => {
           </button>
         </div>
       </section>
-    </Layout>
+    </>
   );
 };
 

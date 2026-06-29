@@ -8,6 +8,8 @@ import Logo from "./logo";
 import { FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
+import { Outlet } from "react-router-dom";
+
 const Layout = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -319,7 +321,7 @@ const Layout = ({ children }) => {
 
       {/* Page */}
 
-      <main className="flex-1">{children}</main>
+      <main className="flex-1"><Outlet/></main>
 
       {/* Footer */}
 
