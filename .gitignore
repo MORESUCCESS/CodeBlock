@@ -1,6 +1,7 @@
 # Frontend
 Frontend/node_modules/
 Frontend/dist/
+Frontend/.env
 
 # Backend
 Backend/node_modules/
