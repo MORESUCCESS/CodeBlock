@@ -2,6 +2,7 @@ import express from "express"
 import cors from "cors"
 import { configDotenv } from "dotenv";
 import { connectToDB } from "./config/mongoose.js";
+import { authRouter } from "./routes/authRoutues.js";
 
 configDotenv();
 
@@ -13,8 +14,11 @@ const PORT = process.env.PORT;
 
 // api routes
 app.get("/", (req, res)=>{
-    res.status(200).json({message: "Everything is fine!"});
+    res.status(200).json({success: "true", message: "Everything is fine!"});
 })
+
+// authRouter api endpoints
+app.use('/api/auth', authRouter);
 
 // connect to database
 connectToDB();
