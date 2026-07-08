@@ -1,5 +1,6 @@
 import express from "express"
 import cors from "cors"
+import cookieParser from "cookie-parser";
 import { configDotenv } from "dotenv";
 import { connectToDB } from "./config/mongoose.js";
 import { authRouter } from "./routes/authRoutues.js";
@@ -10,6 +11,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+app.use(cookieParser());
 
 const PORT = process.env.PORT;
 

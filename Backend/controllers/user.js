@@ -111,11 +111,26 @@ export const logOut = async (req, res) => {
     res.clearCookie("token", {
       httpOnly: true,
       secure: process.env.NODE_ENVIRONMENT === "production",
-      sameSite: process.env.NODE_ENVIRONMENT === "production" ? "none" : "strict",
+      sameSite:
+        process.env.NODE_ENVIRONMENT === "production" ? "none" : "strict",
     });
 
-    return res.json({ success: true, message: "You have been logged out successfully!" });
+    return res.json({
+      success: true,
+      message: "You have been logged out successfully!",
+    });
   } catch (error) {
     return res.json({ success: false, message: error.message });
+  }
+};
+
+// check if user is login and get user details
+export const userDetails = async (req, res) => {
+  try {
+    const user = await userModel.findById(req.user.id).select("-password");
+
+    res.json(user);
+  } catch (error) {
+    return res.status(400).json({ success: false, message: error.message });
   }
 };
