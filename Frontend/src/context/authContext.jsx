@@ -1,9 +1,9 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import api from "../api/http.js";
+import {api} from "../api/http.js";
 
 const authContext = createContext(null);
 
-export function authProvider({children}){
+export function AuthProvider({children}){
     // set user and loading states
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);

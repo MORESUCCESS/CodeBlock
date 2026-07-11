@@ -10,13 +10,13 @@ import { FaXTwitter } from "react-icons/fa6";
 
 import { Outlet } from "react-router-dom";
 import { useAuth } from "../context/authContext";
-
-// check if user if logged in
-
-const {user} = useAuth();
+import UserDropdown from "./userDropDown";
 
 const Layout = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // check if user if logged in
+  const { user } = useAuth();
 
   // Temporary cart count
   // Replace with global cart state later
@@ -179,9 +179,13 @@ const Layout = ({ children }) => {
                 gap-3
               "
             >
-              <Link
-                to="/login"
-                className="
+              {user ? (
+                <UserDropdown />
+              ) : (
+                <>
+                  <Link
+                    to="/login"
+                    className="
                   px-4
                   py-2
                   rounded-xl
@@ -192,13 +196,13 @@ const Layout = ({ children }) => {
                   hover:bg-gray-100
                   dark:hover:bg-gray-800
                 "
-              >
-                Login
-              </Link>
+                  >
+                    Login
+                  </Link>
 
-              <Link
-                to="/signup"
-                className="
+                  <Link
+                    to="/signup"
+                    className="
                   px-5
                   py-2
                   rounded-xl
@@ -207,9 +211,11 @@ const Layout = ({ children }) => {
                   text-sm
                   font-semibold
                 "
-              >
-                Signup
-              </Link>
+                  >
+                    Signup
+                  </Link>
+                </>
+              )}
             </div>
 
             {/* Mobile Menu */}
@@ -326,7 +332,9 @@ const Layout = ({ children }) => {
 
       {/* Page */}
 
-      <main className="flex-1"><Outlet/></main>
+      <main className="flex-1">
+        <Outlet />
+      </main>
 
       {/* Footer */}
 

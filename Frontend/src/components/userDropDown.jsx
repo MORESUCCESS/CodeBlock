@@ -1,8 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, BookOpen, Package, Settings, LogOut } from "lucide-react";
-
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../context/authContext.jsx";
 
 const UserDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -60,6 +59,7 @@ const UserDropdown = () => {
           hover:bg-gray-100
           dark:hover:bg-gray-800
           transition
+          cursor-pointer
         "
       >
         {/* Avatar */}
