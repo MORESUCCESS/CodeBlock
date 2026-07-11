@@ -1,5 +1,6 @@
-import axios from "axios"
+import axios from "axios";
 
-export const httpRequest = axios.create({
-    baseURL = "http://locahost:5000"
-})
+export const api = axios.create({
+    baseURL: import.meta.env.BACKEND_API_URL,
+    withCredentials: true
+});

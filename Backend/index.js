@@ -7,7 +7,7 @@ import { authRouter } from "./routes/authRoutues.js";
 
 configDotenv();
 
-const app = express();
+export const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
