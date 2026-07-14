@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Mail, Lock, Eye, EyeOff } from "lucide-react";
+import { useAuth } from "../context/authContext";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -8,8 +10,15 @@ const Login = () => {
   });
 
   const [errors, setErrors] = useState({});
+  const [backendError, setBackendError] = useState("");
 
   const [showPassword, setShowPassword] = useState(false);
+
+  const [loading, setLoading] = useState(false);
+
+  const {logIn} = useAuth();
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -18,6 +27,11 @@ const Login = () => {
       ...prev,
       [name]: value,
     }));
+
+    setErrors((prev)=>({
+      ...prev,
+      [name]: "",
+    }))
   };
 
   const validateForm = () => {
@@ -40,15 +54,34 @@ const Login = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!validateForm()) return;
 
     console.log("Login Values:", formData);
 
-    // Authentication API will go here
+    // Authentication API 
+
+    setLoading(true);
+    try {
+      await logIn(formData.email, formData.password);
+      navigate("/resources")
+      
+    } catch (error) {
+      setBackendError(
+        error.response?.data?.message || error.message
+      )
+    }
+    finally{
+      setLoading(false);
+    }
   };
+
+    // clear backend error
+  const clearBackendError = () =>{
+    setBackendError("");
+  }
 
   return (
     <div
@@ -95,6 +128,17 @@ const Login = () => {
         >
           Login to your codeblock account.
         </p>
+
+         {/* error message from the backend */}
+
+        {
+          backendError &&
+          (<div className="text-xs bg-rose-200 text-rose-700 p-2 rounded-xl mt-2 relative px-3">
+            {backendError}
+
+            <p onClick={clearBackendError} className="absolute top-[3px] right-3 text-rose-700 font-bold text-lg cursor-pointer">x</p>
+          </div>)
+        }
 
         {/* Email */}
 
@@ -235,7 +279,28 @@ const Login = () => {
           </a>
         </div>
 
-        <button
+        {
+          loading ? 
+          (<button
+          type="submit"
+          className="
+            mt-7
+            w-full
+            py-3
+            rounded-xl
+            dark:bg-gray-500
+            text-white
+            font-bold
+            hover:scale-[1.02]
+            transition
+            italic
+            cursor-pointer
+          "
+        >
+          please wait...
+        </button>):
+
+        (<button
           type="submit"
           className="
             mt-7
@@ -251,7 +316,8 @@ const Login = () => {
           "
         >
           Login
-        </button>
+        </button>)
+        }
 
         <p
           className="
@@ -262,8 +328,8 @@ const Login = () => {
           "
         >
           Don't have an account?
-          <a
-            href="#"
+          <Link
+            to={"/signup"}
             className="
               ml-1
               font-semibold
@@ -272,7 +338,7 @@ const Login = () => {
             "
           >
             Signup
-          </a>
+          </Link>
         </p>
       </form>
     </div>

@@ -1,7 +1,7 @@
 import { React, useState} from "react";
 import { Mail, Lock, User, Eye, EyeOff } from "lucide-react";
 import { useAuth } from "../context/authContext";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 
 const Signup = () => {
@@ -379,8 +379,8 @@ const Signup = () => {
           "
         >
           Already have an account?
-          <a
-            href="#"
+          <Link
+            to={"/login"}
             className="
               ml-1
               font-semibold
@@ -389,7 +389,7 @@ const Signup = () => {
             "
           >
             Login
-          </a>
+          </Link>
         </p>
       </form>
     </div>
