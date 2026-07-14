@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+import { React, useState} from "react";
 import { Mail, Lock, User, Eye, EyeOff } from "lucide-react";
+import { useAuth } from "../context/authContext";
+import {useNavigate} from "react-router-dom";
+
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -11,9 +14,17 @@ const Signup = () => {
 
   const [errors, setErrors] = useState({});
 
+  const [backendError, setBackendError] = useState("");
+
   const [showPassword, setShowPassword] = useState(false);
 
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const [loading, setLoading] = useState(false);
+  
+
+  const {signUp} = useAuth();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,6 +33,13 @@ const Signup = () => {
       ...prev,
       [name]: value,
     }));
+
+    setErrors((prev)=>({
+      ...prev,
+      [name]: "",
+    }));
+
+    setBackendError("");
   };
 
   const validateForm = () => {
@@ -54,15 +72,33 @@ const Signup = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!validateForm()) return;
 
     console.log("Signup Values:", formData);
 
-    // API integration later
+    // API integration
+    setLoading(true); 
+    try {
+      await signUp(formData.name, formData.email, formData.password);
+      navigate("/resources");
+    } catch (error) {
+        setBackendError(
+          error.response?.data?.message ||
+          error.message
+        )
+    }
+    finally{
+      setLoading(false);
+    }
   };
+
+  // clear backend error
+  const clearBackendError = () =>{
+    setBackendError("");
+  }
 
   return (
     <div
@@ -111,6 +147,17 @@ const Signup = () => {
         >
           Join codeblock and start building faster.
         </p>
+
+        {/* error message from the backend */}
+
+        {
+          backendError &&
+          (<div className="text-xs bg-rose-200 text-rose-700 p-2 rounded-xl mt-2 relative px-3">
+            {backendError}
+
+            <p onClick={clearBackendError} className="absolute top-[3px] right-3 text-rose-700 font-bold text-lg cursor-pointer">x</p>
+          </div>)
+        }
 
         {/* Name */}
         <div className="mt-6">
@@ -282,7 +329,28 @@ const Signup = () => {
           )}
         </div>
 
-        <button
+        {
+          loading ?
+
+           (<button
+          type="submit"
+          className="
+            mt-8
+            w-full
+            py-3
+            rounded-xl
+            dark:bg-gray-500
+            text-fade
+            italic
+            font-bold
+            transition
+            cursor-pointer
+          "
+        >
+          please wait...
+        </button>):
+
+        (<button
           type="submit"
           className="
             mt-8
@@ -298,7 +366,9 @@ const Signup = () => {
           "
         >
           Create Account
-        </button>
+        </button>)
+           
+        }
 
         <p
           className="

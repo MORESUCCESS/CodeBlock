@@ -24,10 +24,8 @@ export const signUp = async (req, res) => {
       });
     }
 
-    const payload = new userModel({ fullName, email, password });
-
-    // save to database
-    await userModel.create(payload);
+        // save to database
+    const payload = await userModel.create({ fullName, email, password });
 
     // create or generate a token for user
     const token = jsonwebtoken.sign(
@@ -45,7 +43,7 @@ export const signUp = async (req, res) => {
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
-    const userData = await userModel.findOne(payload._id).select("-password");
+    const userData = await userModel.findById(payload._id).select("-password");
     return res.status(200).json(userData);
   } catch (error) {
     return res.status(400).json({ success: false, message: error.message });

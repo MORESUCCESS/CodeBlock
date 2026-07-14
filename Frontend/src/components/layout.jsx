@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // check if user if logged in
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
 
   // Temporary cart count
   // Replace with global cart state later
@@ -179,7 +179,7 @@ const Layout = ({ children }) => {
                 gap-3
               "
             >
-              {user ? (
+              {loading ? null : user ? (
                 <UserDropdown />
               ) : (
                 <>

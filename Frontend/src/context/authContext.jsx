@@ -18,21 +18,21 @@ export function AuthProvider({children}){
 
     // handle login 
     const logIn = async (email, password)=>{
-        const res = await api.post('/login', {email, password});
+        const res = await api.post('auth/login', {email, password});
         setUser(res.data);
         return res.data;
     }
 
     // handle signup
     const signUp = async (fullName, email, password)=>{
-        const res = await api.post('/signup', ({fullName, email, password}));
+        const res = await api.post('auth/signup', ({fullName, email, password}));
         setUser(res.data);
         return res.data;
     }
 
     // handle logout
     const logOut = async ()=>{
-        await api.post('/logout');
+        await api.post('auth/logout');
         setUser(null);
     }
 

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ChevronDown, BookOpen, Package, Settings, LogOut } from "lucide-react";
 import { useAuth } from "../context/authContext.jsx";
 
@@ -8,7 +8,9 @@ const UserDropdown = () => {
 
   const dropdownRef = useRef(null);
 
-  const { user, logout } = useAuth();
+  const { user, logOut } = useAuth();
+  
+  const navigate = useNavigate();
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -26,15 +28,16 @@ const UserDropdown = () => {
   }, []);
 
   const handleLogout = async () => {
-    await logout();
+    await logOut();
+    navigate("/login")
     setIsOpen(false);
   };
 
   // Fallback initials if user has no profile picture
   const getInitials = () => {
-    if (!user?.name) return "U";
+    if (!user?.fullName) return "U";
 
-    const names = user.name.split(" ");
+    const names = user.fullName.split(" ");
 
     return names
       .map((name) => name[0])
@@ -67,7 +70,7 @@ const UserDropdown = () => {
         {user?.profilePicture ? (
           <img
             src={user.profilePicture}
-            alt={user.name}
+            alt={user.fullName}
             className="
               w-9
               h-9
@@ -141,7 +144,7 @@ const UserDropdown = () => {
                 dark:text-white
               "
             >
-              {user?.name}
+              {user?.fullName}
             </p>
 
             <p
@@ -246,6 +249,7 @@ const UserDropdown = () => {
                 hover:bg-gray-100
                 dark:hover:bg-gray-800
                 transition
+                cursor-pointer
               "
             >
               <LogOut size={18} />
