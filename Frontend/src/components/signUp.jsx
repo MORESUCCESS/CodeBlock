@@ -108,23 +108,27 @@ const Signup = () => {
         items-center
         justify-center
         px-6
-        bg-gray-50
-        dark:bg-gray-950
+        bg-[#050505]
+        dark:bg-[#050505]
         text-white
       "
     >
       <form
+        data-aos="zoom-in"
         onSubmit={handleSubmit}
         className="
           w-full
           max-w-md
-          bg-white
-          dark:bg-gray-900
+          bg-[#050505]
+          dark:bg-[#050505]/50
+          backdrop-blur-xl
           rounded-3xl
           shadow-xl
           p-8
           mt-20
           mb-20
+          border
+          border-violet-600/30
         "
       >
         <h1
@@ -353,17 +357,22 @@ const Signup = () => {
         (<button
           type="submit"
           className="
-            mt-8
-            w-full
-            py-3
-            rounded-xl
-            dark:bg-gray-950
-            text-white
-            font-bold
-            hover:scale-[1.02]
-            transition
-            cursor-pointer
-          "
+                  px-7
+                  py-3
+                  rounded-xl
+                  bg-gradient-to-r
+                  from-violet-600
+                  to-blue-600
+                  hover:scale-105
+                  transition
+                  shadow-xl
+                  shadow-violet-600/20
+                  text-white
+                  font-semibold
+                  cursor-pointer
+                  mt-7
+                  w-full
+                "
         >
           Create Account
         </button>)
@@ -374,7 +383,7 @@ const Signup = () => {
           className="
             text-center
             text-sm
-            mt-5
+            mt-7
             text-gray-500
           "
         >

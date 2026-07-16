@@ -97,6 +97,7 @@ const Login = () => {
       "
     >
       <form
+        data-aos="zoom-in"
         onSubmit={handleSubmit}
         className="
           w-full
