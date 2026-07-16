@@ -310,9 +310,7 @@ const Login = () => {
                   px-7
                   py-3
                   rounded-xl
-                  bg-gradient-to-r
-                  from-violet-600
-                  to-blue-600
+                  bg-violet-600
                   hover:scale-105
                   transition
                   shadow-xl

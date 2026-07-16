@@ -97,7 +97,7 @@ const Home = () => {
             h-[700px]
             w-[700px]
             rounded-full
-            bg-violet-600/20
+            bg-violet-600/5
             blur-[180px]
             animate-pulse
           "
@@ -113,7 +113,7 @@ const Home = () => {
             h-[420px]
             w-[420px]
             rounded-full
-            bg-blue-500/15
+            bg-blue-500/5
             blur-[160px]
           "
         />
@@ -128,7 +128,7 @@ const Home = () => {
             h-[450px]
             w-[450px]
             rounded-full
-            bg-purple-700/20
+            bg-purple-700/5
             blur-[180px]
           "
         />
@@ -187,9 +187,9 @@ const Home = () => {
         />
       </div>
       <div className="relative z-10">
-        <section className="px-6 pt-17 pb-28 max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+        <section className="px-6 lg:pt-17 pt-28 pb-25 max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
           <div className="flex flex-col lg:items-start items-center lg:text-start text-center space-y-6 lg:space-y-0">
-            <h1 data-aos="fade-up" className="text-5xl md:text-7xl font-black tracking-tight leading-tight text-white">
+            <h1 data-aos="fade-up" className="lg:text-7xl text-4xl font-black tracking-tight leading-tight text-white">
               Stop rebuilding
               <span className="block bg-gradient-to-r from-violet-400 via-white to-blue-400 bg-clip-text text-transparent">
                 the same features.
@@ -207,9 +207,7 @@ const Home = () => {
                   px-7
                   py-3
                   rounded-xl
-                  bg-gradient-to-r
-                  from-violet-600
-                  to-blue-600
+                  bg-violet-600
                   hover:scale-105
                   transition
                   shadow-xl
@@ -286,7 +284,7 @@ const Home = () => {
         <section className="px-6 py-24">
           <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
             <div data-aos="fade-right">
-              <h2 className="lg:text-4xl text-2xl font-bold text-white lg:text-start text-center">
+              <h2 className="lg:text-4xl text-xl font-bold text-white lg:text-start text-center">
                 Developers waste hours rebuilding what already exists.
               </h2>
 
@@ -330,7 +328,7 @@ const Home = () => {
 
         {/* SOLUTION */}
         <section className="px-6 py-20 max-w-7xl mx-auto">
-          <h2 data-aos="fade-up" className="lg:text-4xl text-2xl font-bold text-white text-center">
+          <h2 data-aos="fade-up" className="lg:text-4xl text-xl font-bold text-white text-center">
             Your developer toolbox, ready when you are.
           </h2>
 
@@ -365,7 +363,7 @@ const Home = () => {
 
         {/* FEATURED */}
         <section className="px-6 py-24 text-white">
-          <h2 data-aos="fade-left" className="text-center lg:text-4xl text-2xl font-bold text-white">
+          <h2 data-aos="fade-left" className="text-center lg:text-4xl text-xl font-bold text-white">
             Featured CodeBlocks
           </h2>
 
@@ -430,7 +428,7 @@ const Home = () => {
 
         {/* CATEGORIES */}
         <section className="px-6 py-20 max-w-7xl mx-auto text-white">
-          <h2 data-aos="fade-up" className="lg:text-4xl text-2xl font-bold text-white text-center">
+          <h2 data-aos="fade-up" className="lg:text-4xl text-xl font-bold text-white text-center">
             Browse by Category
           </h2>
 
@@ -482,7 +480,7 @@ const Home = () => {
 
         {/* HOW IT WORKS */}
         <section className="px-6 py-24 text-white">
-          <h2 data-aos="flip-left" className="lg:text-4xl text-2xl font-bold text-center">
+          <h2 data-aos="flip-left" className="lg:text-4xl text-xl font-bold text-center">
             Start building faster in 3 steps.
           </h2>
 
@@ -514,7 +512,7 @@ const Home = () => {
 
         {/* BENEFITS */}
         <section className="px-6 py-20 max-w-7xl mx-auto text-white flex flex-col items-center">
-          <h2 data-aos="fade-left" className="lg:text-4xl text-2xl font-bold text-center mb-15">
+          <h2 data-aos="fade-left" className="lg:text-4xl text-xl font-bold text-center mb-8">
             Built for developers who ship.
           </h2>
 
@@ -622,7 +620,7 @@ const Home = () => {
           </p>
 
           <div className="mt-8 flex lg:flex-row flex-col justify-center gap-4">
-            <button className="bg-white text-black px-6 py-3 rounded-xl cursor-pointer hover:scale-105 duration-300">
+            <button className="bg-violet-600 text-white transition shadow-xl px-6 py-3 rounded-xl cursor-pointer hover:scale-105 duration-300">
               Browse Resources
             </button>
 

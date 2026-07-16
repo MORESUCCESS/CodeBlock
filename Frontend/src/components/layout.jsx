@@ -235,9 +235,9 @@ const Layout = ({ children }) => {
                 md:hidden
                 p-2
                 rounded-xl
-                bg-gray-100
+                bg-white/20
                 text-white
-                dark:bg-gray-800
+                dark:bg-white/12
               "
             >
               {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
@@ -257,7 +257,7 @@ const Layout = ({ children }) => {
               px-6
               py-6
               bg-white
-              dark:bg-gray-950
+              dark:bg-[#050505]
             "
           >
             <div
@@ -299,7 +299,7 @@ const Layout = ({ children }) => {
               {loading ? null : user ? (
                 <>
                   {/* User Info */}
-                  <div className="pt-5 border-t border-gray-200 dark:border-gray-800">
+                  <div className="pt-5 border-t border-violet-600/30 dark:border-violet-800/30">
                     <div className="flex items-center gap-3 mb-5">
                       <div
                         className="
@@ -350,7 +350,7 @@ const Layout = ({ children }) => {
                   className="
                     pt-5
                     border-t
-                    border-gray-200
+                    border-violet-600/30
                     dark:border-gray-800
                     flex
                     flex-col
@@ -364,7 +364,10 @@ const Layout = ({ children }) => {
                       text-center
                       py-3
                       rounded-xl
-                      bg-gray-100
+                      bg-white/5
+                      dark:[#050505]/60
+                      text-gray-200
+                      backdrop-blur-xl
                     "
                   >
                     Login
@@ -374,11 +377,23 @@ const Layout = ({ children }) => {
                     to="/signup"
                     onClick={closeMenu}
                     className="
-                      text-center
+                      px-7
                       py-3
                       rounded-xl
-                      bg-black
+                      bg-violet-600
+                      hover:scale-105
+                      transition
+                      shadow-xl
+                      shadow-violet-600/20
                       text-white
+                      font-semibold
+                      cursor-pointer
+                      w-full
+                      mt-7
+                      duration-300
+                      flex
+                      items-center
+                      justify-center
                     "
                   >
                     Signup

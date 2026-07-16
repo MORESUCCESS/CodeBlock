@@ -83,7 +83,7 @@ const Signup = () => {
     setLoading(true); 
     try {
       await signUp(formData.name, formData.email, formData.password);
-      navigate("/resources");
+      navigate("/");
     } catch (error) {
         setBackendError(
           error.response?.data?.message ||
@@ -360,9 +360,7 @@ const Signup = () => {
                   px-7
                   py-3
                   rounded-xl
-                  bg-gradient-to-r
-                  from-violet-600
-                  to-blue-600
+                  bg-violet-600
                   hover:scale-105
                   transition
                   shadow-xl
