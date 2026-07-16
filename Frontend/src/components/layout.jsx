@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { React, useState } from "react";
 import { Menu, X, ShoppingCart } from "lucide-react";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import Logo from "./logo";
 
@@ -16,7 +16,9 @@ const Layout = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // check if user if logged in
-  const { user, loading } = useAuth();
+  const { user, loading, logOut } = useAuth();
+
+  const navigate = useNavigate();
 
   // Temporary cart count
   // Replace with global cart state later
@@ -47,6 +49,11 @@ const Layout = ({ children }) => {
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
+
+  const handleLogout = async()=>{
+    await logOut();
+    navigate("/login");
+  }
 
   return (
     <div
@@ -287,44 +294,95 @@ const Layout = ({ children }) => {
                 Cart ({cartCount})
               </Link>
 
-              <div
-                className="
-                  pt-5
-                  border-t
-                  border-gray-200
-                  dark:border-gray-800
-                  flex
-                  flex-col
-                  gap-3
-                "
-              >
-                <Link
-                  to="/login"
-                  onClick={closeMenu}
-                  className="
-                    text-center
-                    py-3
-                    rounded-xl
-                    bg-gray-100
-                  "
-                >
-                  Login
-                </Link>
+              {loading ? null : user ? (
+                <>
+                  {/* User Info */}
+                  <div className="pt-5 border-t border-gray-200 dark:border-gray-800">
+                    <div className="flex items-center gap-3 mb-5">
+                      <div
+                        className="
+                          w-11
+                          h-11
+                          rounded-full
+                          bg-gray-900
+                          text-white
+                          flex
+                          items-center
+                          justify-center
+                          font-semibold
+                        "
+                      >
+                        {user.fullName?.charAt(0).toUpperCase()}
+                      </div>
 
-                <Link
-                  to="/signup"
-                  onClick={closeMenu}
+                      <div className="text-white">
+                        <p className="font-semibold">{user.fullName}</p>
+                        <p className="text-sm text-gray-500">{user.email}</p>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col gap-3  text-white">
+                      <Link to="/library" onClick={closeMenu}>
+                        My Library
+                      </Link>
+
+                      <Link to="/orders" onClick={closeMenu}>
+                        Orders
+                      </Link>
+
+                      <Link to="/settings" onClick={closeMenu}>
+                        Settings
+                      </Link>
+
+                      <button
+                        onClick={handleLogout}
+                        className="text-left text-red-500"
+                      >
+                        Logout
+                      </button>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <div
                   className="
-                    text-center
-                    py-3
-                    rounded-xl
-                    bg-black
-                    text-white
+                    pt-5
+                    border-t
+                    border-gray-200
+                    dark:border-gray-800
+                    flex
+                    flex-col
+                    gap-3
                   "
                 >
-                  Signup
-                </Link>
-              </div>
+                  <Link
+                    to="/login"
+                    onClick={closeMenu}
+                    className="
+                      text-center
+                      py-3
+                      rounded-xl
+                      bg-gray-100
+                    "
+                  >
+                    Login
+                  </Link>
+
+                  <Link
+                    to="/signup"
+                    onClick={closeMenu}
+                    className="
+                      text-center
+                      py-3
+                      rounded-xl
+                      bg-black
+                      text-white
+                    "
+                  >
+                    Signup
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
         )}
