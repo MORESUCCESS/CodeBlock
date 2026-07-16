@@ -59,8 +59,12 @@ const UserDropdown = () => {
           rounded-xl
           px-2
           py-1.5
+          bg-white/5
+          backdrop-blur-xl
           hover:bg-gray-100
-          dark:hover:bg-gray-800
+          dark:hover:bg-gray-900/60
+          hover:border-violet-600/30
+          hover:border-1
           transition
           cursor-pointer
         "
@@ -84,7 +88,8 @@ const UserDropdown = () => {
               w-9
               h-9
               rounded-full
-              bg-gray-900
+              bg-white/5
+              backdrop-blur-xl
               text-white
               flex
               items-center
@@ -119,8 +124,8 @@ const UserDropdown = () => {
             border
             border-gray-200
             dark:border-gray-800
-            bg-white
-            dark:bg-gray-950
+            bg-[#050505]/70
+            backdrop-blur-xl
             shadow-xl
             overflow-hidden
             z-50
@@ -174,7 +179,7 @@ const UserDropdown = () => {
                 text-gray-700
                 dark:text-gray-200
                 hover:bg-gray-100
-                dark:hover:bg-gray-800
+                dark:hover:bg-gray-800/30
                 transition
               "
             >
@@ -195,7 +200,7 @@ const UserDropdown = () => {
                 text-gray-700
                 dark:text-gray-200
                 hover:bg-gray-100
-                dark:hover:bg-gray-800
+                dark:hover:bg-gray-800/30
                 transition
               "
             >
@@ -216,7 +221,7 @@ const UserDropdown = () => {
                 text-gray-700
                 dark:text-gray-200
                 hover:bg-gray-100
-                dark:hover:bg-gray-800
+                dark:hover:bg-gray-800/30
                 transition
               "
             >
@@ -247,7 +252,7 @@ const UserDropdown = () => {
                 text-sm
                 text-red-500
                 hover:bg-gray-100
-                dark:hover:bg-gray-800
+                dark:hover:bg-gray-800/30
                 transition
                 cursor-pointer
               "

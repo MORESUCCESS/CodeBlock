@@ -61,8 +61,7 @@ const Layout = ({ children }) => {
         min-h-screen
         flex
         flex-col
-        bg-gray-50
-        dark:bg-gray-950
+        bg-[#050505]
       "
     >
       {/* Navbar */}
@@ -71,10 +70,11 @@ const Layout = ({ children }) => {
         className="
           w-full
           border-b
-          border-gray-200
-          dark:border-gray-800
-          bg-white/80
-          dark:bg-gray-950/80
+          border-gray-100
+          border-b-violet-600/20
+          bg-[#050505]
+          bg-white/20
+          dark:bg-[#050505]/20
           backdrop-blur-md
           sticky
           top-0
@@ -86,7 +86,7 @@ const Layout = ({ children }) => {
             max-w-7xl
             mx-auto
             px-6
-            py-4
+            py-3
             flex
             items-center
             justify-between

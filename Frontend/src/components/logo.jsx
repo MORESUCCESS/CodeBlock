@@ -35,12 +35,14 @@ const Logo = ({
         className="
           flex items-center justify-center
           rounded-2xl
-          bg-gray-900
+          bg-white/5
+          backdrop-blur-xl
           text-white
           shadow-lg
           transition-all
           duration-300
           hover:scale-105
+          p-2
         "
         style={{
           width: current.icon,
