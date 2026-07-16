@@ -22,6 +22,7 @@ import Products from "./admin/pages/products";
 import Orders from "./admin/pages/orders";
 import Users from "./admin/pages/users";
 import Settings from "./admin/pages/settings";
+import { useEffect } from "react";
 
 const App = () => {
   return (

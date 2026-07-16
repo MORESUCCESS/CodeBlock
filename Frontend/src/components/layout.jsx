@@ -400,9 +400,9 @@ const Layout = ({ children }) => {
         className="
           border-t
           border-gray-200
-          dark:border-gray-800
-          bg-white
-          dark:bg-gray-950
+          dark:border-violet-600/40
+          backdrop-blur-xl
+          dark:bg-[#050505]
         "
       >
         <div
@@ -472,6 +472,7 @@ const Layout = ({ children }) => {
         <div
           className="
             border-t
+            border-t-violet-600/40
             py-5
             text-center
             text-sm

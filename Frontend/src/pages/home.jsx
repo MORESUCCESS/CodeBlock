@@ -187,21 +187,21 @@ const Home = () => {
         />
       </div>
       <div className="relative z-10">
-        <section className="px-6 pt-32 pb-28 max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+        <section className="px-6 pt-17 pb-28 max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
           <div className="flex flex-col lg:items-start items-center lg:text-start text-center space-y-6 lg:space-y-0">
-            <h1 className="text-5xl md:text-7xl font-black tracking-tight leading-tight text-white">
+            <h1 data-aos="fade-up" className="text-5xl md:text-7xl font-black tracking-tight leading-tight text-white">
               Stop rebuilding
               <span className="block bg-gradient-to-r from-violet-400 via-white to-blue-400 bg-clip-text text-transparent">
                 the same features.
               </span>
             </h1>
 
-            <p className="mt-6 text-lg text-gray-600 dark:text-gray-400">
+            <p data-aos="fade-up" className="mt-6 text-lg text-gray-600 dark:text-gray-400">
               Get production-ready starter kits, reusable components, and
               developer resources to build projects faster.
             </p>
 
-            <div className="flex gap-4 mt-10">
+            <div data-aos="fade-right"className="flex gap-4 mt-10">
               <button
                 className="
                   px-7
@@ -244,6 +244,7 @@ const Home = () => {
 
           {/* CODE PREVIEW */}
           <div
+            data-aos="fade-down"
             className="
               relative
               overflow-hidden
@@ -284,7 +285,7 @@ const Home = () => {
         {/* PROBLEM */}
         <section className="px-6 py-24">
           <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
-            <div>
+            <div data-aos="fade-right">
               <h2 className="lg:text-4xl text-2xl font-bold text-white lg:text-start text-center">
                 Developers waste hours rebuilding what already exists.
               </h2>
@@ -302,6 +303,7 @@ const Home = () => {
                 "Setup APIs again",
               ].map((item, index) => (
                 <div
+                  data-aos="fade-up"
                   key={index}
                   className="
                       flex
@@ -328,7 +330,7 @@ const Home = () => {
 
         {/* SOLUTION */}
         <section className="px-6 py-20 max-w-7xl mx-auto">
-          <h2 className="lg:text-4xl text-2xl font-bold text-white text-center">
+          <h2 data-aos="fade-up" className="lg:text-4xl text-2xl font-bold text-white text-center">
             Your developer toolbox, ready when you are.
           </h2>
 
@@ -336,6 +338,7 @@ const Home = () => {
             {["Starter Kits", "Components", "Developer Resources"].map(
               (item) => (
                 <div
+                  data-aos="fade-down"
                   key={item}
                   className="
                       p-8
@@ -345,8 +348,7 @@ const Home = () => {
                       bg-white/5
                       backdrop-blur-xl
                       hover:border-violet-500/30
-                      hover:-translate-y-4
-                      duration-300
+                      hover:-translate-y-1
                       cursor-pointer
                     "
                 >
@@ -363,13 +365,14 @@ const Home = () => {
 
         {/* FEATURED */}
         <section className="px-6 py-24 text-white">
-          <h2 className="text-center lg:text-4xl text-2xl font-bold text-white">
+          <h2 data-aos="fade-left" className="text-center lg:text-4xl text-2xl font-bold text-white">
             Featured CodeBlocks
           </h2>
 
           <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-6 mt-10">
             {resources.map((item) => (
               <div
+                data-aos="zoom-in"
                 key={item}
                 className="
                   group
@@ -427,7 +430,7 @@ const Home = () => {
 
         {/* CATEGORIES */}
         <section className="px-6 py-20 max-w-7xl mx-auto text-white">
-          <h2 className="lg:text-4xl text-2xl font-bold text-white text-center">
+          <h2 data-aos="fade-up" className="lg:text-4xl text-2xl font-bold text-white text-center">
             Browse by Category
           </h2>
 
@@ -437,6 +440,7 @@ const Home = () => {
 
               return (
                 <div
+                  data-aos="zoom-in"
                   key={cat.title}
                   className="
                     p-7
@@ -478,11 +482,11 @@ const Home = () => {
 
         {/* HOW IT WORKS */}
         <section className="px-6 py-24 text-white">
-          <h2 className="lg:text-4xl text-2xl font-bold text-center">
+          <h2 data-aos="flip-left" className="lg:text-4xl text-2xl font-bold text-center">
             Start building faster in 3 steps.
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-6 mt-12 max-w-6xl mx-auto">
+          <div data-aos="zoom-in" className="grid md:grid-cols-3 gap-6 mt-12 max-w-6xl mx-auto">
             {["Discover", "Download", "Build"].map((step, index) => (
               <div
                 key={step}
@@ -510,7 +514,7 @@ const Home = () => {
 
         {/* BENEFITS */}
         <section className="px-6 py-20 max-w-7xl mx-auto text-white flex flex-col items-center">
-          <h2 className="lg:text-4xl text-2xl font-bold text-center mb-15">
+          <h2 data-aos="fade-left" className="lg:text-4xl text-2xl font-bold text-center mb-15">
             Built for developers who ship.
           </h2>
 
@@ -520,6 +524,7 @@ const Home = () => {
 
               return (
                 <div
+                  data-aos="flip-right"
                   key={item.title}
                   className="
                       rounded-3xl
@@ -562,11 +567,11 @@ const Home = () => {
 
         {/* PHILOSOPHY */}
         <section className="px-6 py-28 text-center text-white">
-          <h2 className="lg:text-4xl text-2xl font-bold">
+          <h2 data-aos="zoom-in" className="lg:text-4xl text-2xl font-bold">
             Built from real developer problems.
           </h2>
 
-          <p className="max-w-2xl mx-auto mt-5 text-gray-500">
+          <p data-aos="fade-up" className="max-w-2xl mx-auto mt-5 text-gray-500">
             CodeBlock started as a personal developer library to store reusable
             solutions and reduce repetitive work.
           </p>
@@ -574,6 +579,7 @@ const Home = () => {
 
         {/* CTA */}
         <section
+          data-aos="flip-left"
           className="
             relative
             overflow-hidden
