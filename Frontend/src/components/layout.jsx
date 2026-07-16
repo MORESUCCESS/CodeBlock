@@ -200,8 +200,9 @@ const Layout = ({ children }) => {
                   font-semibold
                   text-gray-700
                   dark:text-gray-200
-                  hover:bg-gray-100
-                  dark:hover:bg-gray-800
+                  hover:bg-[#050505]/20
+                  dark:hover:bg-white/15
+                  duration-300
                 "
                   >
                     Login
@@ -213,7 +214,8 @@ const Layout = ({ children }) => {
                   px-5
                   py-2
                   rounded-xl
-                  bg-gray-900
+                  bg-white/13
+                  backdrop-blur-xl
                   text-white
                   text-sm
                   font-semibold
