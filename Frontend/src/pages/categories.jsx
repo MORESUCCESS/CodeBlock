@@ -50,8 +50,8 @@ const Categories = () => {
     <div
       className="
         min-h-screen
-        bg-gray-50
-        dark:bg-gray-950
+        bg-[#050505]
+        dark:bg-[#050505]
         px-6
         py-16
         text-white
@@ -71,7 +71,7 @@ const Categories = () => {
               text-5xl
               font-black
               text-gray-900
-              dark:text-white
+              dark:text-gray-200
             "
           >
             Browse by Category
@@ -106,8 +106,8 @@ const Categories = () => {
               <div
                 key={category.title}
                 className="
-                  bg-white
-                  dark:bg-gray-900
+                  bg-[#050505]
+                  dark:bg-white/5
                   rounded-3xl
                   p-8
                   shadow-sm
@@ -121,10 +121,11 @@ const Categories = () => {
                     h-14
                     rounded-2xl
                     bg-gray-100
-                    dark:bg-gray-800
+                    dark:bg-[#050505]
                     flex
                     items-center
                     justify-center
+                    text-gray-300
                   "
                 >
                   <Icon size={28} />
@@ -136,7 +137,7 @@ const Categories = () => {
                     text-2xl
                     font-bold
                     text-gray-900
-                    dark:text-white
+                    dark:text-gray-200
                   "
                 >
                   {category.title}
@@ -184,8 +185,8 @@ const Categories = () => {
                     w-full
                     py-3
                     rounded-xl
-                    dark:bg-gray-950
-                    text-white
+                    dark:bg-[#050505]
+                    text-gray-200
                     font-semibold
                     hover:scale-[1.02]
                     transition
