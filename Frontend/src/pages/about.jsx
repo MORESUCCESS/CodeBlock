@@ -36,8 +36,8 @@ const About = () => {
     <div
       className="
         min-h-screen
-        bg-gray-50
-        dark:bg-gray-950
+        bbg-[#050505]/50
+        dark:bg-[#050505]
         px-6
         py-16
       "
@@ -63,7 +63,7 @@ const About = () => {
               md:text-6xl
               font-black
               text-gray-900
-              dark:text-white
+              dark:text-gray-200
             "
           >
             Built for developers who ship.
@@ -96,7 +96,7 @@ const About = () => {
           <div
             className="
               bg-white
-              dark:bg-gray-900
+              dark:bg-white/5
               rounded-3xl
               p-8
               shadow-sm
@@ -142,8 +142,9 @@ const About = () => {
 
           <div
             className="
-              dark:bg-gray-900
-              text-white
+              dark:bg-white/5
+              bg-[#050505]
+              text-gray-200
               rounded-3xl
               p-8
             "
@@ -198,7 +199,7 @@ const About = () => {
               text-4xl
               font-bold
               text-gray-900
-              dark:text-white
+              dark:text-gray-200
             "
           >
             Our Principles
@@ -219,7 +220,7 @@ const About = () => {
                 <div
                   key={value.title}
                   className="
-                    dark:bg-gray-900
+                    dark:bg-white/5
                     rounded-3xl
                     p-6
                     cursor-pointer
@@ -261,7 +262,7 @@ const About = () => {
           className="
             mt-20
             bg-white
-            dark:bg-gray-900
+            dark:bg-white/5
             rounded-3xl
             p-10
             text-center
@@ -271,8 +272,8 @@ const About = () => {
             className="
               text-4xl
               font-black
-              text-gray-900
-              dark:text-white
+              text-gray-200
+              dark:text-200
             "
           >
             Build your next project with confidence.
@@ -295,10 +296,12 @@ const About = () => {
               px-8
               py-3
               rounded-xl
-              dark:bg-gray-950
-              text-white
+              dark:bg-[#050505]
+              text-gray-200
               font-semibold
               cursor-pointer
+              hover:scale-105
+              duration-300
             "
           >
             Browse Resources
