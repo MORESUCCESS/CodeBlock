@@ -83,7 +83,7 @@ const Signup = () => {
     setLoading(true); 
     try {
       await signUp(formData.name, formData.email, formData.password);
-      navigate("/");
+      navigate("/resources");
     } catch (error) {
         setBackendError(
           error.response?.data?.message ||
