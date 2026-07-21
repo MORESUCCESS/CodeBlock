@@ -63,8 +63,8 @@ const Resources = () => {
     <div
       className="
       min-h-screen
-      bg-gray-50
-      dark:bg-gray-950
+      bg-[#050505]
+      dark:bg-[#050505]
       px-6
       py-16
       text-white
@@ -83,7 +83,7 @@ const Resources = () => {
           text-5xl
           font-black
           text-gray-900
-          dark:text-white
+          dark:text-gray-200
         "
         >
           Browse Resources
@@ -116,10 +116,11 @@ const Resources = () => {
             flex
             items-center
             gap-3
-            bg-white
-            dark:bg-gray-900
+            bg-[#050505]
+            dark:bg-white/5
+            backdrop-blur-xl
             border
-            border-gray-800
+            border-violet-600/10
             rounded-xl
             px-4
             py-3
@@ -149,8 +150,9 @@ const Resources = () => {
               px-6
               py-3
               rounded-xl
-              bg-gray-900
-              text-white
+              bg-white/5
+              cursor-pointer
+              text-gray-200
               cursor-pointer
             "
           >
@@ -177,21 +179,22 @@ const Resources = () => {
           <div
             key={item.id}
             className="
-              bg-white
-              dark:bg-gray-900
+              bg-[#050505]
+              dark:bg-white/5
               rounded-3xl
               p-6
               shadow-sm
               hover:shadow-xl
               transition
+              text-gray-200
             "
           >
             <div
               className="
               h-40
               rounded-2xl
-              bg-gray-100
-              dark:bg-gray-800
+              bg-white
+              dark:bg-[#050505]
               flex
               items-center
               justify-center
@@ -212,7 +215,7 @@ const Resources = () => {
                 font-bold
                 text-xl
                 text-gray-900
-                dark:text-white
+                dark:text-gray-300
               "
               >
                 {item.title}
@@ -221,6 +224,7 @@ const Resources = () => {
               <span
                 className="
                 font-bold
+                text-gray-200
               "
               >
                 {item.price}
@@ -230,7 +234,7 @@ const Resources = () => {
             <p
               className="
               text-sm
-              text-gray-500
+              text-gray-400
               mt-2
             "
             >
@@ -241,7 +245,7 @@ const Resources = () => {
               className="
               mt-4
               text-gray-600
-              dark:text-gray-400
+              dark:text-gray-300
             "
             >
               {item.description}
@@ -269,9 +273,10 @@ const Resources = () => {
                   px-4
                   py-2
                   rounded-xl
-                  bg-gray-950
-                  text-white
+                  bg-[#050505]
+                  text-gray-300
                   text-sm
+                  cursor-pointer
                   cursor-pointer
                 "
               >

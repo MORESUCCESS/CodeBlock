@@ -310,12 +310,13 @@ const Home = () => {
                       p-5
                       rounded-2xl
                       border
-                      border-red-500/10
+                      border-violet-500/10
                       bg-white/5
                       backdrop-blur-xl
                       hover:bg-white/10
                       duration-300
                       text-white
+                      cursor-pointer
                     "
                 >
                   <X />
