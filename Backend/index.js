@@ -4,6 +4,7 @@ import cookieParser from "cookie-parser";
 import { configDotenv } from "dotenv";
 import { connectToDB } from "./config/mongoose.js";
 import { authRouter } from "./routes/authRoutues.js";
+import { resourceRouter } from "./routes/resourcesRoutes.js";
 
 configDotenv();
 
@@ -27,6 +28,9 @@ app.get("/", (req, res)=>{
 
 // authRouter api endpoints
 app.use('/api/auth', authRouter);
+
+// resources api endpoints
+app.use('/api/resources', resourceRouter);
 
 // connect to database
 connectToDB();
