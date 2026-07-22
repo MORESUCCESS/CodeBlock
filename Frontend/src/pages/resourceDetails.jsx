@@ -35,8 +35,8 @@ const ResourceDetails = () => {
     <div
       className="
         min-h-screen
-        bg-gray-50
-        dark:bg-gray-950
+        bg-[#050505]/50
+        bg-[#050505]
         px-6
         py-16
         text-white
@@ -59,7 +59,7 @@ const ResourceDetails = () => {
               h-[420px]
               rounded-3xl
               bg-white
-              dark:bg-gray-900
+              dark:bg-white/5
               flex
               items-center
               justify-center
@@ -83,8 +83,9 @@ const ResourceDetails = () => {
                 className="
                   h-24
                   rounded-2xl
-                  bg-gray-200
-                  dark:bg-gray-800
+                  bg-white
+                  dark:bg-white/5
+                  cursor-pointer
                 "
               />
             ))}
@@ -113,7 +114,7 @@ const ResourceDetails = () => {
               text-5xl
               font-black
               text-gray-900
-              dark:text-white
+              dark:text-gray-200
             "
           >
             {resource.title}
@@ -147,9 +148,10 @@ const ResourceDetails = () => {
                   px-4
                   py-2
                   rounded-full
-                  bg-gray-200
-                  dark:bg-gray-800
+                  bg-white
+                  dark:bg-white/5
                   text-sm
+                  text-gray-300
                 "
               >
                 {item}
@@ -206,6 +208,7 @@ const ResourceDetails = () => {
           <div
             className="
               mt-8
+              text-gray-200
             "
           >
             <h3
@@ -254,8 +257,10 @@ const ResourceDetails = () => {
                 flex-1
                 py-4
                 rounded-xl
-                dark:bg-gray-800
-                text-white
+                dark:bg-violet-600
+                shadow-violet-600/20
+                shadow-xl
+                text-gray-200
                 font-bold
                 flex
                 justify-center

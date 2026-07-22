@@ -63,8 +63,6 @@ const UserDropdown = () => {
           backdrop-blur-xl
           hover:bg-gray-100
           dark:hover:bg-gray-900/60
-          hover:border-violet-600/30
-          hover:border-1
           transition
           cursor-pointer
         "

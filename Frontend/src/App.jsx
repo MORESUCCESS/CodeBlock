@@ -23,6 +23,7 @@ import Orders from "./admin/pages/orders";
 import Users from "./admin/pages/users";
 import Settings from "./admin/pages/settings";
 import { useEffect } from "react";
+import ResourceDetails from "./pages/resourceDetails";
 
 const App = () => {
   return (
@@ -61,6 +62,8 @@ const App = () => {
         <Route path="/cart" element={<Cart />} />
 
         <Route path="/checkout" element={<Checkout />} />
+
+        <Route path="/resources/:id" element={<ResourceDetails />} />
       </Route>
     </Routes>
   );
